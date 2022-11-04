@@ -12,10 +12,9 @@ const fetchTv = () => {
         apiData.push(data);
     })
     .catch((error) => {
-
+        console.error(error.message);
     })
     .finally(() => {
-
         apiData[0].map((show) => Cards(show));
     })
 }
@@ -25,10 +24,10 @@ const Cards = (data) => {
     document.getElementById("app").innerHTML +=`
     <figure class="card">
     <h2>${data.name}</h2>
-    <img src="${data.image.medium}" alt="">
-    <p>${data.runtime}</p>
-    <p>${data.genres}</p>
-    <p>${data.rating.average}</p>
+    <img src="${data.image.medium}" alt="image-of-show">
+    <p>Runtime: ${data.runtime}</p>
+    <p>Genre: ${data.genres}</p>
+    <p>Rating: ${data.rating.average}</p>
     </figure>
     `
 }
